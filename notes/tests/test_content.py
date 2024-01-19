@@ -35,3 +35,4 @@ class TestContent(TestCase):
         response = self.client.get(url)
         self.assertIn('form', response.context)
 
+

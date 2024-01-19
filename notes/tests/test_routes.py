@@ -81,19 +81,3 @@ class TestRoutes(TestCase):
                 response = self.client.get(url)
                 self.assertRedirects(response, redirect_url)                                     
 
-
-    # def test_authorized_client_has_form_edit(self):
-    #     # Авторизуем клиент при помощи ранее созданного пользователя.
-    #     self.client.force_login(self.author)
-    #     url = reverse('notes:edit', args=(self.note.slug,))
-    #     response = self.client.get(url)
-    #     self.assertIn('form', response.context)
-
-    # # 'notes:list', 'notes:success', 'notes:add',                 
-        
-    def test_authorized_client_has_form_edit(self):
-        for name in ('notes:edit'):
-            with self.subTest(name=name):
-                url = reverse(name, args=(self.note.slug,))
-                response = self.client.get(url)
-                self.assertIn('form', response.context)        
